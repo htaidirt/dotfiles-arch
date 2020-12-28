@@ -63,6 +63,7 @@ yinstall tty-clock tty-clock
 #                   #
 #####################
 
+install alacritty alacritty
 install flameshot flameshot
 install jq jq
 
