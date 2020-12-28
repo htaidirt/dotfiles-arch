@@ -16,7 +16,7 @@
 #
 #xfce-mcs-manager &
 
-picom &
+picom --config $HOME/.config/picom/picom.conf &
 
 feh --bg-scale $HOME/Pictures/Wallpapers/wolf-minimal.jpg
 
