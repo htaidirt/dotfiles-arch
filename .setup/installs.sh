@@ -40,6 +40,7 @@ function check_font_and_install() {
 
 check_font_and_install "DejaVu" ttf-dejavu
 check_font_and_install "JetBrains Mono" ttf-jetbrains-mono
+check_font_and_install "Cantarell" cantarell-fonts
 
 
 
@@ -65,7 +66,10 @@ yinstall tty-clock tty-clock
 
 install alacritty alacritty
 install flameshot flameshot
+install scrot scrot # Quick screenshot of current view
 install jq jq
+install skippy-xd skippy-xd # Show all active apps of desktop
+yinstall oblogout oblogout # Logout and co. for Openbox
 
 
 

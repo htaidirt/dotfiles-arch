@@ -20,3 +20,5 @@ picom --config $HOME/.config/picom/picom.conf &
 
 feh --bg-scale $HOME/Pictures/Wallpapers/wolf-minimal.jpg
 
+tint2 -c $HOME/.config/tint2/themes/starty.tint2rc
+

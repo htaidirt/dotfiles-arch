@@ -1,5 +1,5 @@
 [global]
-    font = Ubuntu 10
+    font = Cantarell Light 12
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>
@@ -111,7 +111,7 @@
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 0
+    line_height = 20
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -124,10 +124,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 20
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 20
 
     # Define a color for the separator.
     # possible values are:
@@ -154,9 +154,11 @@
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/hicolor/16x16/apps/
 
-[frame]
-    width = 2
-    color = "#4d679a"
+    # corner_radius = 5
+
+[frame] # Border of the notification
+    width = 0
+    color = "#000000"
 
 [shortcuts]
 
@@ -182,17 +184,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#383a3b"
+    background = "#196f3d"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_normal]
-    background = "#383a3b"
+    background = "#1a5276"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
-    background = "#383a3b"
+    background = "#7b241c"
     foreground = "#ffffff"
     timeout = 0
 
@@ -256,6 +258,6 @@
     new_icon = spotify-client
 
 [pa-applet]
-		appname = *pa-applet*
-		format = "%p"
+    appname = *pa-applet*
+    format = "%p"
 
