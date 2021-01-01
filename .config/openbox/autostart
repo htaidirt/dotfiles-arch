@@ -20,5 +20,10 @@ picom --config $HOME/.config/picom/picom.conf &
 
 feh --bg-scale $HOME/Pictures/Wallpapers/wolf-minimal.jpg
 
-tint2 -c $HOME/.config/tint2/themes/starty.tint2rc
+tint2 -c $HOME/.config/tint2/themes/mechanical-vertical.tint2rc
+
+if $(xrandr | grep -q "DP3-2 connected")
+then
+	xrandr --output eDP1 --primary --mode 1920x1200 --output DP3-2 --mode 1920x1080 --right-of eDP1
+fi
 
