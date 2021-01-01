@@ -127,6 +127,10 @@
     <name>desktop 1</name>
     <name>desktop 2</name>
     -->
+      <name></name>
+      <name></name>
+      <name></name>
+      <name></name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -331,9 +335,34 @@
        <execute>openbox --restart</execute>
       </action>
     </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+       <execute>~/.scripts/volume.sh raise</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+       <execute>~/.scripts/volume.sh lower</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+       <execute>~/.scripts/volume.sh toggle</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+       <execute>~/.scripts/brightness.sh raise</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+       <execute>~/.scripts/brightness.sh lower</execute>
+      </action>
+    </keybind>
     <keybind key="W-space">
       <action name="Execute">
-       <execute>rofi -show combi -combi-modi "window,drun"</execute>
+       <execute>~/.scripts/launcher.sh</execute>
       </action>
     </keybind>
   </keyboard>

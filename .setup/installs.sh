@@ -41,6 +41,7 @@ function check_font_and_install() {
 check_font_and_install "DejaVu" ttf-dejavu
 check_font_and_install "JetBrains Mono" ttf-jetbrains-mono
 check_font_and_install "Cantarell" cantarell-fonts
+check_font_and_install "Material" ttf-material-design-icons
 
 
 
@@ -50,6 +51,7 @@ check_font_and_install "Cantarell" cantarell-fonts
 #                   #
 #####################
 
+install xorg-xbacklight
 install neofetch neofetch
 yinstall pfetch pfetch
 install htop htop
