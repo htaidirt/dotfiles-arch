@@ -385,6 +385,16 @@
        <execute>~/.scripts/launcher.sh</execute>
       </action>
     </keybind>
+    <keybind key="W-grave">
+      <action name="Execute">
+       <execute>skippy-xd</execute>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+       <execute>~/.scripts/locker.sh</execute>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>

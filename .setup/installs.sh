@@ -68,8 +68,9 @@ yinstall tty-clock tty-clock
 #####################
 
 install alacritty alacritty
-install flameshot flameshot
+yinstall ranger-git ranger
 install scrot scrot # Quick screenshot of current view
+install flameshot flameshot
 install jq jq
 install skippy-xd skippy-xd # Show all active apps of desktop
 yinstall oblogout oblogout # Logout and co. for Openbox
