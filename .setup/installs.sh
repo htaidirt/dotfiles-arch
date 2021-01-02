@@ -51,7 +51,8 @@ check_font_and_install "Material" ttf-material-design-icons
 #                   #
 #####################
 
-install xorg-xbacklight
+yinstall i3lock-color i3lock
+install xorg-xbacklight xbacklight
 install neofetch neofetch
 yinstall pfetch pfetch
 install htop htop
