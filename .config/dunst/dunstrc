@@ -154,11 +154,11 @@
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/hicolor/16x16/apps/
 
-    # corner_radius = 5
+    corner_radius = 5
 
 [frame] # Border of the notification
-    width = 0
-    color = "#000000"
+    width = 1
+    color = "#0090ff"
 
 [shortcuts]
 
@@ -184,18 +184,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#196f3d"
+    background = "#000000"
     foreground = "#ffffff"
+    frame_color = "#00ff00"
     timeout = 10
 
 [urgency_normal]
-    background = "#1a5276"
+    background = "#000000"
     foreground = "#ffffff"
+    frame_color = "#ffee79"
     timeout = 10
 
 [urgency_critical]
-    background = "#7b241c"
+    background = "#000000"
     foreground = "#ffffff"
+    frame_color = "#ff0000"
     timeout = 0
 
 
