@@ -85,6 +85,7 @@ install flameshot flameshot
 install jq jq
 install skippy-xd skippy-xd # Show all active apps of desktop
 yinstall oblogout oblogout # Logout and co. for Openbox
+yinstall ltunify ltunify # Helps to work with Logitech MX Switch 2
 
 
 
