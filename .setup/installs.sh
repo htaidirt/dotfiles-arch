@@ -47,6 +47,17 @@ check_font_and_install "Material" ttf-material-design-icons
 
 #####################
 #                   #
+#  WINDOW  MANAGER  #
+#                   #
+#####################
+
+install bspwm bspwm
+install sxhkd sxhkd
+
+
+
+#####################
+#                   #
 #      SYSTEM       #
 #                   #
 #####################
@@ -84,7 +95,7 @@ yinstall oblogout oblogout # Logout and co. for Openbox
 #####################
 
 install vim vim
-yinstall visual-studio-code-bin code\
+yinstall visual-studio-code-bin code
 install nvm nvm
 install docker docker
 

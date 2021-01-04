@@ -1,10 +1,10 @@
 #!/bin/sh
 
 case $1 in
-	"raise")
+	"up")
 		xbacklight -inc 10
 		;;
-	"lower")
+	"down")
 		xbacklight -dec 10
 		;;
 	*)

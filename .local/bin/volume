@@ -1,0 +1,25 @@
+#!/bin/sh
+
+function notify_volume() {
+	VOLUME=$(amixer sget Master | grep "Front Left: " | cut -d" " -f7,8)
+	notify-send "Volume $VOLUME"
+}
+
+case $1 in
+	"up")
+		amixer set Master -q 5%+
+		notify_volume
+		;;
+	"down")
+		amixer set Master -q 5%-
+		notify_volume
+		;;
+	"toggle")
+		amixer -q sset Master,0 toggle
+		notify_volume
+		;;
+	*)
+		echo "Bad option $1 for volume control"
+		;;
+esac
+

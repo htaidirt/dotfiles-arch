@@ -153,3 +153,4 @@ alias config=$DOTFILE_CMD
 source $HOME/.setup/aliases.sh
 source $HOME/.setup/functions.sh
 
+PATH=$PATH:$HOME/.local/bin
