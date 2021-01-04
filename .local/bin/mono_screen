@@ -1,0 +1,6 @@
+#!/bin/sh
+
+RESOLUTION=$(xdpyinfo | grep -oP 'dimensions:\s+\K\S+')
+xrandr -s $RESOLUTION
+notify-send "Using single monitor of $RESOLUTION"
+

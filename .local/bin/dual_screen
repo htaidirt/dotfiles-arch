@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if $(xrandr | grep -q "DP3-2 connected")
+then
+	xrandr --output eDP1 --primary --mode 1920x1200 --output DP3-2 --mode 1920x1080 --right-of eDP1 &
+fi
+
