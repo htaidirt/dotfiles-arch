@@ -1,3 +1,7 @@
+# To make fish your default shell, run:
+# chsh -s $(which fish)
+
+
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -25,6 +29,5 @@ if test -e "$HOME/.ssh/id_rsa"
 	/usr/bin/ssh-add -K "$HOME/.ssh/id_rsa" &> /dev/null
 end
 
-# To make fish your default shell, run:
-# chsh -s $(which fish)
+ufetch &
 

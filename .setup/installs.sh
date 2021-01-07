@@ -34,19 +34,6 @@ function check_font_and_install() {
 
 #####################
 #                   #
-#       FONTS       #
-#                   #
-#####################
-
-check_font_and_install "DejaVu" ttf-dejavu
-check_font_and_install "JetBrains Mono" ttf-jetbrains-mono
-check_font_and_install "Cantarell" cantarell-fonts
-check_font_and_install "Material" ttf-material-design-icons
-
-
-
-#####################
-#                   #
 #  WINDOW  MANAGER  #
 #                   #
 #####################
@@ -65,7 +52,7 @@ install sxhkd sxhkd
 yinstall i3lock-color i3lock
 install xorg-xbacklight xbacklight
 install neofetch neofetch
-yinstall pfetch pfetch
+yinstall ufetch ufetch
 install htop htop
 install tree tree
 yinstall tty-clock tty-clock
@@ -87,6 +74,19 @@ install fzf fzf
 install skippy-xd skippy-xd # Show all active apps of desktop
 yinstall oblogout oblogout # Logout and co. for Openbox
 yinstall ltunify ltunify # Helps to work with Logitech MX Switch 2
+
+
+
+#####################
+#                   #
+#       FONTS       #
+#                   #
+#####################
+
+check_font_and_install "DejaVu" ttf-dejavu
+check_font_and_install "JetBrains Mono" ttf-jetbrains-mono
+check_font_and_install "Cantarell" cantarell-fonts
+check_font_and_install "Material" ttf-material-design-icons
 
 
 
