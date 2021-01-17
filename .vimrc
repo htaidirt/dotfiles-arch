@@ -1,3 +1,7 @@
+" Hassen Taidirt
+" 2021
+"
+"
 "
 "                                        ________ ++     ________
 "                                       /VVVVVVVV\++++  /VVVVVVVV\
@@ -75,6 +79,7 @@ Plug 'zxqfl/tabnine-vim'                    " TabNine uses deep learning to help
 Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }   " Colour schemes for a variety of editors created by Dayle Rees
 Plug 'rainglow/vim'                                 " 320+ color themes for VIM
 Plug 'morhetz/gruvbox'                              " Retro groove color scheme for Vim
+Plug 'doums/darcula'                                " Copy of official JetBrains Darcula theme
 
 " Looks like the following 3 lines are required to fix alacritty issue not
 " rendering theme properly.
@@ -86,6 +91,11 @@ endif
 "
 Plug 'itchyny/lightline.vim'                          " Configurable statusline/tabline
 let g:lightline = { 'colorscheme': 'powerline' }      " Other option as 'powerline'
+
+Plug 'yegappan/taglist'                     " Display tags list (functions, classes,...)
+nmap <c-m> :TlistToggle<CR>
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
 
 Plug 'scrooloose/nerdtree'                  " NerdTree: A better file browser
 nmap <c-n> :NERDTreeToggle<CR>
@@ -105,7 +115,7 @@ Plug 'kien/ctrlp.vim'                       " Fuzzy file, buffer, mru, tag, ...e
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules\|venv\|log\|tmp$',
+  \ 'dir':  '\.git$\|node_modules\|venv\|log\|tmp|.history\|.idea\$',
   \ 'file': '\.DS_Store$'
   \ }
 
@@ -186,12 +196,13 @@ set t_Co=256		    " Enable 256 colors in vim
 if (has('termguicolors'))
   set termguicolors
 endif
+set background=dark    " Setting dark mode
 " Themes I like, pick one:
-" gruvbox, dare, crackpot-contrast, brave, joker-contrast, lavender-contrast,
+" gruvbox, darcula, dare, crackpot-contrast, brave, joker-contrast, lavender-contrast,
 " overflow-contrast, patriot-contrast, pleasure-contrast, potpourri-contrast,
 " tribal-contrast, vision, zacks-contrast
-colorscheme pleasure-contrast
-set guifont=JetBrains-Mono-Regular:h16
+colorscheme gruvbox
+set guifont=JetBrains-Mono-Regular:h12
 set linespace=3
 syntax enable		" Set syntax highlighting ON
 
@@ -298,3 +309,4 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Statusline ----------------------------
 set statusline+=%*
+

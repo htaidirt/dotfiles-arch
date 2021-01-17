@@ -100,6 +100,7 @@ install vim vim
 yinstall visual-studio-code-bin code
 install nvm nvm
 install docker docker
+yinstall ctags ctags
 
 
 
