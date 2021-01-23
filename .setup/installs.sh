@@ -61,6 +61,17 @@ yinstall tty-clock tty-clock
 
 #####################
 #                   #
+#       WEB         #
+#                   #
+#####################
+
+yinstall brave brave
+yinstall trezor-bridge-bin trezor-bridge-bin
+
+
+
+#####################
+#                   #
 #     UTILITIES     #
 #                   #
 #####################

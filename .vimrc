@@ -160,8 +160,8 @@ let g:syntastic_style_warning_symbol = '⚠'
 " FZF (Fuzzy Finder) --------------------
 Plug 'junegunn/fzf', { 'do': './install --bin' }  " Required for fzf.vim (next plugin)
 Plug 'junegunn/fzf.vim'                           " Fuzzy finding for VIM
-map <C-;> :Files<CR>
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
+nmap <c-b> :Files<CR>
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 command B Buffers
 command F Files
 
