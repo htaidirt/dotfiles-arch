@@ -80,6 +80,7 @@ Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }   " Colour schemes for a varie
 Plug 'rainglow/vim'                                 " 320+ color themes for VIM
 Plug 'morhetz/gruvbox'                              " Retro groove color scheme for Vim
 Plug 'doums/darcula'                                " Copy of official JetBrains Darcula theme
+Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
 
 " Looks like the following 3 lines are required to fix alacritty issue not
 " rendering theme properly.
@@ -200,8 +201,8 @@ set background=dark    " Setting dark mode
 " Themes I like, pick one:
 " gruvbox, darcula, dare, crackpot-contrast, brave, joker-contrast, lavender-contrast,
 " overflow-contrast, patriot-contrast, pleasure-contrast, potpourri-contrast,
-" tribal-contrast, vision, zacks-contrast
-colorscheme gruvbox
+" tribal-contrast, vision, zacks-contrast, nord
+colorscheme nord
 set guifont=JetBrains-Mono-Regular:h12
 set linespace=3
 syntax enable		" Set syntax highlighting ON

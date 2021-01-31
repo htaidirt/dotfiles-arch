@@ -1,9 +1,16 @@
+import os
+import subprocess
+import json
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+
+
+home = os.path.expanduser('~')
+config_folder = f"{home}/.config/qtile"
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -33,6 +40,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating mode"),
 
     Key([mod], "semicolon", lazy.spawn("lock"), desc="Lock screen"),
     Key([mod], "a", lazy.spawn("skippy-xd"), desc="Show apps like Mission Control"),
@@ -46,45 +54,109 @@ keys = [
 
 groups = [Group(i) for i in "1234567890"]
 
-for i in groups:
+for g in groups:
     keys.extend([
-        Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
+        Key([mod], g.name, lazy.group[g.name].toscreen(), desc="Switch to group {}".format(g.name)),
+        Key([mod, "shift"], g.name, lazy.window.togroup(g.name, switch_group=True),
+            desc="Switch to & move focused window to group {}".format(g.name)),
     ])
 
+layout_configs = dict(
+    border_normal = "#2e3440",
+    border_focus = "#5e81ac",
+    border_width = 2,
+    margin = 5,
+    single_margin = 0,
+    single_border_width = 0,
+)
+
 layouts = [
-    layout.MonadTall(),
-    layout.Columns(border_focus_stack='#0090ff'),
-    layout.Max(),
+    layout.MonadTall(**layout_configs),
+    layout.Columns(**layout_configs),
+    layout.Max(
+        border_width=0,
+    ),
 ]
 
 widget_defaults = dict(
-    font='sans',
+    font='Material Icon, JetBrains Mono, sans',
     fontsize=12,
+    margin=3,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-            ],
-            24,
-        ),
+colors = [
+    ["#2e3440", "#2e3440"],  # background
+    ["#d8dee9", "#d8dee9"],  # foreground
+    ["#3b4252", "#3b4252"],  # background lighter
+    ["#bf616a", "#bf616a"],  # red
+    ["#a3be8c", "#a3be8c"],  # green
+    ["#ebcb8b", "#ebcb8b"],  # yellow
+    ["#81a1c1", "#81a1c1"],  # blue
+    ["#b48ead", "#b48ead"],  # magenta
+    ["#88c0d0", "#88c0d0"],  # cyan
+    ["#e5e9f0", "#e5e9f0"],  # white
+    ["#4c566a", "#4c566a"],  # grey
+    ["#d08770", "#d08770"],  # orange
+    ["#8fbcbb", "#8fbcbb"],  # super cyan
+    ["#5e81ac", "#5e81ac"],  # super blue
+    ["#242831", "#242831"],  # super dark background
+]
+
+group_box_settings = {
+    "padding": 5,
+    "borderwidth": 4,
+    "active": colors[9],
+    "inactive": colors[10],
+    "disable_drag": True,
+    "rounded": True,
+    "highlight_color": colors[2],
+    "block_highlight_text_color": colors[6],
+    "highlight_method": "block",
+    "this_current_screen_border": colors[14],
+    "this_screen_border": colors[7],
+    "other_current_screen_border": colors[14],
+    "other_screen_border": colors[14],
+    "foreground": colors[1],
+    "background": colors[14],
+    "urgent_border": colors[3],
+    "hide_unused": True,
+}
+
+screen = Screen(
+    wallpaper=f"{home}/Pictures/Wallpapers/Wolf-of-the-north.png",
+    wallpaper_mode="fill",
+    bottom=bar.Bar(
+        [
+            widget.CurrentLayoutIcon(),
+            widget.GroupBox(**group_box_settings),
+            widget.WindowName(
+                padding=10,
+            ),
+            widget.Chord(
+                chords_colors={
+                    'launch': ("#ff0000", "#ffffff"),
+                },
+                name_transform=lambda name: name.upper(),
+            ),
+            widget.Battery(
+                padding=5,
+            ),
+            widget.Clock(
+                format='%Y-%m-%d %a %I:%M %p',
+                background='#222222',
+                padding=5,
+                rounded=True,
+            ),
+        ],
+        32,
+        background=colors[0]
     ),
+)
+
+screens = [
+    screen, screen
 ]
 
 mouse = [

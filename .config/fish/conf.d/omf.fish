@@ -24,6 +24,9 @@ eval "$DOTFILE_CMD config --local status.showUntrackedFiles no"
 # Add local scripts
 set PATH $PATH:$HOME/.local/bin
 
+# Add other tool paths
+set PATH $PATH:$HOME/.porter
+
 # Add SSH for fast authentication
 if test -e "$HOME/.ssh/id_rsa"
 	/usr/bin/ssh-add -K "$HOME/.ssh/id_rsa" &> /dev/null
