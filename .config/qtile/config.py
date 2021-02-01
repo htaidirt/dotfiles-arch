@@ -42,7 +42,7 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating mode"),
 
-    Key([mod], "semicolon", lazy.spawn("lock"), desc="Lock screen"),
+    Key([mod], "backslash", lazy.spawn("lock"), desc="Lock screen"),
     Key([mod], "a", lazy.spawn("skippy-xd"), desc="Show apps like Mission Control"),
 
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume up")),
