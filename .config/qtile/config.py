@@ -125,7 +125,7 @@ group_box_settings = {
 }
 
 screen = Screen(
-    wallpaper=f"{home}/Pictures/Wallpapers/Wolf-of-the-north.png",
+    wallpaper=f"{home}/Pictures/Wallpapers/tokyo-nightscape-1920x1200.jpg",
     wallpaper_mode="fill",
     bottom=bar.Bar(
         [
