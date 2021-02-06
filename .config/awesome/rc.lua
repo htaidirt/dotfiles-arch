@@ -61,17 +61,17 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.floating,
+    awful.layout.suit.fair,
+    --awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -250,8 +250,6 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -293,10 +291,10 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-              {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-              {description = "select previous", group = "layout"}),
+    awful.key({ modkey,           }, "]", function () awful.layout.inc( 1)                end,
+              {description = "select next layout", group = "layout"}),
+    awful.key({ modkey,           }, "[", function () awful.layout.inc(-1)                end,
+              {description = "select previous layout", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -311,8 +309,8 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey },            "space",     function () awful.util.spawn("launcher") end,
+              {description = "run Rofi", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -324,6 +322,17 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+    -- System
+    awful.key({ modkey, }, "\\", function () awful.util.spawn("lock") end, {description = "lock screen", group = "system"}),
+    awful.key({ modkey, }, "`", function () awful.util.spawn("skippy-xd") end, {description = "show apps current tag", group = "system"}),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("volume up") end, {description = "increase volume", group = "system"}),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("volume down") end, {description = "decrease volume", group = "system"}),
+    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("volume toggle") end, {description = "toggle volume", group = "system"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("brightness up") end, {description = "increase brightness", group = "system"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("brightness down") end, {description = "decrease brightness", group = "system"}),
+    --
+    -- Applications
+
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
@@ -336,7 +345,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey }, "w",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
