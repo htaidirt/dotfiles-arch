@@ -63,7 +63,7 @@ for g in groups:
 
 layout_configs = dict(
     border_normal = "#2e3440",
-    border_focus = "#5e81ac",
+    border_focus = "#f05454", # 5e81ac",
     border_width = 2,
     margin = 5,
     single_margin = 0,
@@ -107,19 +107,18 @@ colors = [
 group_box_settings = {
     "padding": 5,
     "borderwidth": 4,
-    "active": colors[9],
-    "inactive": colors[10],
+    "active": "#dddddd",
+    "inactive": "#888888",
     "disable_drag": True,
     "rounded": True,
     "highlight_color": colors[2],
-    "block_highlight_text_color": colors[6],
+    "block_highlight_text_color": "#000000",
     "highlight_method": "block",
-    "this_current_screen_border": colors[14],
-    "this_screen_border": colors[7],
+    "this_current_screen_border": "#dddddd",
+    "this_screen_border": "#ff0000",
     "other_current_screen_border": colors[14],
     "other_screen_border": colors[14],
-    "foreground": colors[1],
-    "background": colors[14],
+    "foreground": "#ffffff",
     "urgent_border": colors[3],
     "hide_unused": True,
 }
@@ -140,18 +139,27 @@ screen = Screen(
                 },
                 name_transform=lambda name: name.upper(),
             ),
+            widget.CheckUpdates(
+                display_format=" {updates}",
+                foreground="#f05454",
+            ),
             widget.Battery(
+                fontsize=18,
+                format="{char}",
+                charge_char=" ",
+                discharge_char=" ",
+                full_char=" ",
+                show_short_text=False,
                 padding=5,
             ),
             widget.Clock(
                 format='%Y-%m-%d %a %I:%M %p',
-                background='#222222',
                 padding=5,
                 rounded=True,
             ),
         ],
         32,
-        background=colors[0]
+        background="#222831"
     ),
 )
 
