@@ -45,7 +45,10 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local theme_file = gears.filesystem.get_themes_dir() .. "default/theme.lua"
+beautiful.init(theme_file)
+--local theme_file = gears.filesystem.get_configuration_dir() .. "themes/idracula.lua"
+--naughty.notify({ title = theme_file })
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -339,7 +342,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey,           }, "f",
+    awful.key({ modkey, "Shift" }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -347,7 +350,7 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey }, "w",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey            }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
@@ -497,9 +500,9 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
-    -- Add titlebars to normal clients and dialogs
+    -- Show/Hide titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -568,11 +571,15 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
+-- }}}
+
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
 
 -- Autostart applications
 awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
-awful.spawn.with_shell("feh --bg-scale --auto-reload /home/hassen/Pictures/Wallpapers/tokyo-nightscape-1920x1200.jpg")
+awful.spawn.with_shell("feh --bg-scale --auto-reload $HOME/Pictures/Wallpapers/tokyo-nightscape-1920x1200.jpg")
+
+-- Some theming
+beautiful.useless_gap = 5
 
